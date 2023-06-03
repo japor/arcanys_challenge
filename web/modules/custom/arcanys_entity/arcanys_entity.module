@@ -1,0 +1,37 @@
+<?php
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ */
+function arcanys_entity_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+  $fields = [];
+
+  // Create event image field to event content type.
+  if ($entity_type->id() === 'node' && $bundle === 'event') {
+    $fields['field_event_image'] = BaseFieldDefinition::create('image')
+      ->setLabel(t('Event Image'))
+      ->setDescription(t('The image for the event.'))
+      ->setSetting('file_directory', 'events')
+      ->setSetting('file_extensions', 'png jpg jpeg')
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'type' => 'image',
+        'weight' => 0,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'image_image',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+    
+    // Install field event image storage.
+    \Drupal::entityDefinitionUpdateManager()
+      ->installFieldStorageDefinition('field_event_image', 'node', 'arcanys_entity', $fields['field_event_image']);
+  }
+  
+  return $fields;
+}

@@ -1,0 +1,7 @@
+name: 'Arcanys Entity'
+type: module
+description: 'Custom module to add field_event_image to the event content type.'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - node
