@@ -1,22 +1,33 @@
-# Composer-enabled Drupal template
+# Local Setup
+## Pre-requisites
+1. The following must be installed on Operating System: Git, Docker, Docker Compose, DDEV
+2. Instructions here are by default for MacOS. Though, it has been tested in Linux and Windows environment.
+3. Current Dev Setup require Ports 80, 3306, 9200, 1025, 8025 and 11211. Please ensure ports are free: `lsof -t -i :80 `
 
-This is Pantheon's recommended starting point for forking new [Drupal](https://www.drupal.org/) upstreams
-that work with the Platform's Integrated Composer build process. It is also the
-Platform's standard Drupal 9 upstream.
+## Installation
+1. Clone the repo
+2. Checkout the branch `master`
+3. Download the latest DB dump: https://drive.google.com/file/d/1zUT838JqUKOd0fIu0TcMoEaoZNXoSTCv/view?usp=drive_link
+4. Start Docker containers from the root of the repository
+    ```sh
+    $ ddev start
+    ```
+5. Install packages and dependencies
+    ```sh
+    $ ddev composer install
+    ```
+6. Import the recently downloaded DB dump
+    ```sh
+    $ ddev import-db --src /path/to/the/db.sql.gz
+    ```
+7. Import the configuration 
+    ```sh
+    $ ddev drush cim -y
+    ```
+8. Generate one time login link to admin account
+    ```sh
+    $ ddev drush uli
+    ```
 
-Unlike with earlier Pantheon upstreams, files such as Drupal Core that you are
-unlikely to adjust while building sites are not in the main branch of the 
-repository. Instead, they are referenced as dependencies that are installed by
-Composer.
-
-For more information and detailed installation guides, please visit the
-Integrated Composer Pantheon documentation: https://pantheon.io/docs/integrated-composer
-
-## Contributing
-
-Contributions are welcome in the form of GitHub pull requests. However, the
-`pantheon-upstreams/drupal-composer-managed` repository is a mirror that does not
-directly accept pull requests.
-
-Instead, to propose a change, please fork [pantheon-systems/drupal-composer-managed](https://github.com/pantheon-systems/drupal-composer-managed)
-and submit a PR to that repository.
+## Custom REST Resource
+/api/event-listing
