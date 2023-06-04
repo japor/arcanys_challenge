@@ -1,0 +1,7 @@
+name: 'Arcanys REST'
+type: module
+description: 'Custom REST Resource'
+core_version_requirement: ^8 || ^9
+package: 'Custom'
+dependencies:
+  - drupal:rest
