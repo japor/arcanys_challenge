@@ -1,0 +1,11 @@
+arcanys_entity.toolbar.sessions:
+  title: 'Sessions'
+  route_name: entity.session.collection
+  parent: system.admin
+  weight: 99
+
+arcanys_entity.admin.structure.settings:
+  title: 'Session settings'
+  description: 'Configure Session entity'
+  route_name: entity.session.settings
+  parent: system.admin_structure

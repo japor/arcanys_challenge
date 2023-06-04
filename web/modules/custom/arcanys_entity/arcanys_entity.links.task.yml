@@ -1,0 +1,4 @@
+session.settings_tab:
+  route_name: entity.session.settings
+  title: 'Settings'
+  base_route: entity.session.settings

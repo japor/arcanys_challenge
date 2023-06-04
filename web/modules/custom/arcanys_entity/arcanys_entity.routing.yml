@@ -1,0 +1,43 @@
+session.add:
+  path: 'admin/sessions/create'
+  defaults:
+    _entity_form: 'session.add'
+  requirements:
+    _entity_create_access: 'session'
+
+entity.session.edit_form:
+  path: 'admin/sessions/{session}/edit'
+  defaults:
+    _entity_form: 'session.edit'
+    _title: 'Edit session'
+  requirements:
+    _entity_access: 'session.edit'
+
+entity.session.delete_form:
+  path: 'admin/sessions/{session}/delete'
+  defaults:
+    _entity_form: 'session.delete'
+    _title: 'Delete session'
+  requirements:
+    _entity_access: 'session.delete'
+
+entity.session.canonical:
+  path: 'admin/session/{session}'
+  defaults:
+    _entity_view: 'session'
+    _title: 'session'
+  requirements:
+    _entity_access: 'session.view'
+
+entity.session.collection:
+  path: '/admin/sessions'
+  requirements:
+    _permission: 'administer own sessions'
+
+entity.session.settings:
+  path: '/admin/structure/session'
+  defaults:
+    _form: '\Drupal\arcanys_entity\Form\SessionSettingsForm'
+    _title: 'Settion settings'
+  requirements:
+    _permission: 'administer own session'

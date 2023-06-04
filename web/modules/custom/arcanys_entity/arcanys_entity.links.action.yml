@@ -1,0 +1,5 @@
+session.add_offer:
+  route_name: session.add
+  title: 'Add session'
+  appears_on:
+    - entity.session.collection
