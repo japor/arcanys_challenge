@@ -40,4 +40,4 @@ entity.session.settings:
     _form: '\Drupal\arcanys_entity\Form\SessionSettingsForm'
     _title: 'Settion settings'
   requirements:
-    _permission: 'administer own session'
+    _permission: 'administer own sessions'

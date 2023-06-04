@@ -139,7 +139,7 @@ class Session extends EditorialContentEntityBase {
       ->setLabel(t('Start Time'))
       ->setDescription(t('Date field example.'))
       ->setSettings([
-        'datetime_type' => 'date',
+        'datetime_type' => 'datetime',
       ])
       ->setRequired(TRUE)
       ->setDefaultValue('')
@@ -161,7 +161,7 @@ class Session extends EditorialContentEntityBase {
       ->setLabel(t('End time'))
       ->setDescription(t('The end time of the entity.'))
       ->setSettings([
-        'datetime_type' => 'date',
+        'datetime_type' => 'datetime',
       ])
       ->setRequired(TRUE)
       ->setDefaultValue('')
