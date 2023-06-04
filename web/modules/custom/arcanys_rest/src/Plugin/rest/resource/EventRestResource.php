@@ -108,7 +108,7 @@ class EventRestResource extends ResourceBase {
         'id' => $node->id(),
         'title' => $node->getTitle(),
         'description' => $node->get('field_description')->value,
-        'start_time' => $node->get('field__start_time')->value,
+        'start_time' => $node->get('field_start_time')->value,
         'end_time' => $node->get('field_end_time')->value,
         'event_image' => $image_field ? file_create_url($image_field->getFileUri()) : '',
       ];
