@@ -1,12 +1,12 @@
-uuid: 483433b5-7a01-46d6-a8ef-a69804a3cb84
+uuid: a9329bbc-6e01-4c4b-aade-c180cacd1843
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
     - node
-id: node.field__start_time
-field_name: field__start_time
+id: node.field_start_time
+field_name: field_start_time
 entity_type: node
 type: datetime
 settings:

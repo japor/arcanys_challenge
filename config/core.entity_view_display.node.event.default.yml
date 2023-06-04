@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.event.field__start_time
     - field.field.node.event.field_address
     - field.field.node.event.field_description
     - field.field.node.event.field_end_time
+    - field.field.node.event.field_start_time
     - node.type.event
   module:
     - datetime
+    - image
     - text
     - user
 id: node.event.default
@@ -17,15 +18,6 @@ targetEntityType: node
 bundle: event
 mode: default
 content:
-  field__start_time:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 102
-    region: content
   field_address:
     type: basic_string
     label: above
@@ -48,6 +40,15 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_start_time:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }
